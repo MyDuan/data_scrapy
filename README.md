@@ -1,0 +1,1 @@
+Use python scrapy to get data from douban which is a movie review website.
