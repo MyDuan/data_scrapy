@@ -20,4 +20,8 @@ class DoubanSpiderSpider(scrapy.Spider):
             movie_item['rating_num'] = movie.xpath(".//span[@class='rating_num']/text()").extract_first()
             movie_item['evaluate_num'] = movie.xpath(".//div[@class='star']/span[4]/text()").extract_first()
             movie_item['describe'] = movie.xpath(".//div[@class='bd']/p[@class='quote']/span/text()").extract_first()
-            print(movie_item)
+            yield movie_item
+        next_page = response.xpath("//span[@class='next']/link/@href").extract()
+        if next_page:
+            netxt_page_url = next_page[0]
+            yield scrapy.Request("http://movie.douban.com/top250" + netxt_page_url, callback = self.parse)
