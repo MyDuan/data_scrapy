@@ -15,3 +15,9 @@ Use python scrapy to get data from douban which is a movie review website.
     - `sqlite3 data.db`
     - `sqlite> .table`
     - `sqlite> select * from movies;`
+    
+### analysis the data in notebook (Pycharm)
+- run `jupyter lab --no-browser`
+- run the `RUN button` in pycharm
+- Type the url to pycharm
+- Than can run the notebook file in ./notebook.
