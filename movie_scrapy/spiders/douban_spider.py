@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
+import re
 from movie_scrapy.items import MovieScrapyItem
 
 
@@ -26,7 +27,8 @@ class DoubanSpiderSpider(scrapy.Spider):
             movie_item['country'] = content_s.split('/')[1]
             movie_item['key_words'] = content_s.split('/')[2]
             movie_item['rating_num'] = movie.xpath(".//span[@class='rating_num']/text()").extract_first()
-            movie_item['evaluate_num'] = movie.xpath(".//div[@class='star']/span[4]/text()").extract_first()
+            evaluate_num = movie.xpath(".//div[@class='star']/span[4]/text()").extract_first()
+            movie_item['evaluate_num'] = int(re.findall('\d+', evaluate_num)[0])
             movie_item['describe'] = movie.xpath(".//div[@class='bd']/p[@class='quote']/span/text()").extract_first()
             yield movie_item
         next_page = response.xpath("//span[@class='next']/link/@href").extract()
