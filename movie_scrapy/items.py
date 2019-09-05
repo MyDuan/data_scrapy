@@ -12,7 +12,10 @@ class MovieScrapyItem(scrapy.Item):
     # define the fields for your item here like:
     serial_number = scrapy.Field()
     movie_name = scrapy.Field()
-    introduce = scrapy.Field()
+    auth = scrapy.Field()
+    show_year = scrapy.Field()
+    country = scrapy.Field()
+    key_words = scrapy.Field()
     rating_num = scrapy.Field()
     evaluate_num = scrapy.Field()
     describe = scrapy.Field()

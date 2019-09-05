@@ -15,8 +15,16 @@ class DoubanSpiderSpider(scrapy.Spider):
             movie_item['serial_number'] = movie.xpath(".//div[@class='item']//em/text()").extract_first()
             movie_item['movie_name'] = movie.xpath(".//div[@class='info']//div[@class='hd']/a/span[1]/text()").extract_first()
             intro_contents = movie.xpath(".//div[@class='info']//div[@class='bd']/p[1]/text()").extract()
-            for item in intro_contents:
-                movie_item['introduce'] = "".join(item.split())
+            movie_item['auth'] = intro_contents[0].split()[1]
+            content_s = ""
+            for item in intro_contents[1].split():
+                if item != '/':
+                    content_s += " "+item
+                else:
+                    content_s += item
+            movie_item['show_year'] = content_s.split('/')[0]
+            movie_item['country'] = content_s.split('/')[1]
+            movie_item['key_words'] = content_s.split('/')[2]
             movie_item['rating_num'] = movie.xpath(".//span[@class='rating_num']/text()").extract_first()
             movie_item['evaluate_num'] = movie.xpath(".//div[@class='star']/span[4]/text()").extract_first()
             movie_item['describe'] = movie.xpath(".//div[@class='bd']/p[@class='quote']/span/text()").extract_first()
