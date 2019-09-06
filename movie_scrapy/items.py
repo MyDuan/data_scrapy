@@ -19,3 +19,11 @@ class MovieScrapyItem(scrapy.Item):
     rating_num = scrapy.Field()
     evaluate_num = scrapy.Field()
     describe = scrapy.Field()
+
+
+class RtbSquareScrapyItem(scrapy.Item):
+    title = scrapy.Field()
+    release_year = scrapy.Field()
+    release_month = scrapy.Field()
+    release_day = scrapy.Field()
+    key_words = scrapy.Field()

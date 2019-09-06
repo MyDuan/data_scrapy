@@ -32,3 +32,25 @@ class MovieScrapyPipeline(object):
         )
         self.conn.commit()
         return item
+
+
+class RtbSquareScrapyPipeline(object):
+    def __init__(self):
+        self.conn = sqlite3.connect('data.db')
+        self.client = self.conn.cursor()
+        self.client.execute('''CREATE TABLE IF NOT EXISTS rtb_square_news
+                      (id INTEGER PRIMARY KEY AUTOINCREMENT, title text, 
+                      release_year INTEGER, release_month INTEGER, release_day INTEGER, key_words text)''')
+
+    def process_item(self, item, spider):
+        self.client.execute(
+            "INSERT INTO rtb_square_news (title, release_year, release_month, release_day,key_words) VALUES (?, ?, ?, ?, ?)", (
+                item['title'],
+                item['release_year'],
+                item['release_month'],
+                item['release_day'],
+                item['key_words']
+            )
+        )
+        self.conn.commit()
+        return item
