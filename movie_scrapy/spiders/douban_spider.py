@@ -8,6 +8,11 @@ class DoubanSpiderSpider(scrapy.Spider):
     name = 'douban_spider'
     allowed_domains = ['movie.douban.com']
     start_urls = ['http://movie.douban.com/top250']
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'movie_scrapy.pipelines.MovieScrapyPipeline': 300,
+        }
+    }
 
     def parse(self, response):
         movies = response.xpath("//div[@class='article']//ol[@class='grid_view']/li")
