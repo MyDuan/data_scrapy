@@ -1,4 +1,5 @@
-Use python scrapy to get data from douban which is a movie review website.
+Use python scrapy to get data from douban which is a movie review website （douban）.
+Also to get data from http://rtbsquare.ciao.jp/ to statistical keywords since 2016.
 
 ### step:
 
