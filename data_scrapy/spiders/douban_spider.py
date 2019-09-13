@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import re
-from movie_scrapy.items import MovieScrapyItem
+from data_scrapy.items import MovieScrapyItem
 
 
 class DoubanSpiderSpider(scrapy.Spider):
@@ -10,7 +10,7 @@ class DoubanSpiderSpider(scrapy.Spider):
     start_urls = ['http://movie.douban.com/top250']
     custom_settings = {
         'ITEM_PIPELINES': {
-            'movie_scrapy.pipelines.MovieScrapyPipeline': 300,
+            'data_scrapy.pipelines.MovieScrapyPipeline': 300,
         }
     }
 

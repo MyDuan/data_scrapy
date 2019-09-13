@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from movie_scrapy.items import RtbSquareScrapyItem
+from data_scrapy.items import RtbSquareScrapyItem
 
 class RtbSquareSpiderSpider(scrapy.Spider):
     name = 'rtb_square_spider'
@@ -8,7 +8,7 @@ class RtbSquareSpiderSpider(scrapy.Spider):
     start_urls = ['http://rtbsquare.ciao.jp/?cat=5']
     custom_settings = {
         'ITEM_PIPELINES': {
-            'movie_scrapy.pipelines.RtbSquareScrapyPipeline': 300,
+            'data_scrapy.pipelines.RtbSquareScrapyPipeline': 300,
         }
     }
 

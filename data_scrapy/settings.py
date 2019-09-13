@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for movie_scrapy project
+# Scrapy settings for data_scrapy project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,10 +9,10 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'movie_scrapy'
+BOT_NAME = 'data_scrapy'
 
-SPIDER_MODULES = ['movie_scrapy.spiders']
-NEWSPIDER_MODULE = 'movie_scrapy.spiders'
+SPIDER_MODULES = ['data_scrapy.spiders']
+NEWSPIDER_MODULE = 'data_scrapy.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -47,13 +47,13 @@ DOWNLOAD_DELAY = 0.1
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'movie_scrapy.middlewares.MovieScrapySpiderMiddleware': 543,
+#    'data_scrapy.middlewares.MovieScrapySpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    'movie_scrapy.middlewares.UserAgentMiddleware': 543,
+    'data_scrapy.middlewares.UserAgentMiddleware': 543,
 }
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'movie_scrapy.pipelines.MovieScrapyPipeline': 300,
+#    'data_scrapy.pipelines.MovieScrapyPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
