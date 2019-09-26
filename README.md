@@ -24,3 +24,7 @@ Also to get data from http://rtbsquare.ciao.jp/ to statistical keywords since 20
 - run the `RUN button` in pycharm
 - Type the url to pycharm
 - Than can run the notebook file in ./notebook.
+
+### Example
+- In this repository, there is a sqlite db example which have the data gotten from the target website.
+- In the ./notebook, there are some example notebook files.
