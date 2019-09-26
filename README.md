@@ -10,7 +10,7 @@ Also to get data from http://rtbsquare.ciao.jp/ to statistical keywords.
 - `scrapy crawl rtb_square_spider`  // get news data from rtb square in 2019
 - `scrapy crawl rtb_square_spider -a start_year=your_start_year -a end_year=your_end_year`  // get news data from rtb square from your_start_year to your_end_year
     - for example `scrapy crawl rtb_square_spider -a start_year=2018 -a end_year=2019` // get news data from rtb square from 2018 to 2019
-    - note: please set start_year < end_year and the default value of start_year and end_year are all 2019.
+    - note: please set start_year <= end_year and the default value of start_year and end_year are all 2019.
 ### data:
 
 - Use the sqlite3 to save the gotten data.
