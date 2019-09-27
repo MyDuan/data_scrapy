@@ -7,6 +7,7 @@
 
 import sqlite3
 
+
 class MovieScrapyPipeline(object):
 
     def __init__(self):
@@ -50,6 +51,36 @@ class RtbSquareScrapyPipeline(object):
                 item['release_month'],
                 item['release_day'],
                 item['key_words']
+            )
+        )
+        self.conn.commit()
+        return item
+
+
+class RtbSquareScrapyPipeline(object):
+    def __init__(self):
+        self.conn = sqlite3.connect('rarejob_news_data.db')
+        self.client = self.conn.cursor()
+        self.client.execute('''CREATE TABLE IF NOT EXISTS rarejob_news
+                         (id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                         title text, 
+                         release_year INTEGER, release_month INTEGER, release_day INTEGER, 
+                         unlocking_word text, meaning text, example text, article_url text, category text)''')
+
+    def process_item(self, item, spider):
+        self.client.execute(
+            "INSERT INTO rarejob_news (title, release_year, release_month, release_day,"
+            "unlocking_word, meaning, example, article_url, category) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (
+                item['title'],
+                item['release_year'],
+                item['release_month'],
+                item['release_day'],
+                item['unlocking_word'],
+                item['meaning'],
+                item['example'],
+                item['article_url'],
+                item['category']
             )
         )
         self.conn.commit()

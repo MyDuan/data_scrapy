@@ -27,3 +27,15 @@ class RtbSquareScrapyItem(scrapy.Item):
     release_month = scrapy.Field()
     release_day = scrapy.Field()
     key_words = scrapy.Field()
+
+
+class RarejobDailyNewsScrapyItem(scrapy.Item):
+    title = scrapy.Field()
+    release_year = scrapy.Field()
+    release_month = scrapy.Field()
+    release_day = scrapy.Field()
+    unlocking_word = scrapy.Field()
+    meaning = scrapy.Field()
+    example = scrapy.Field()
+    article_url = scrapy.Field()
+    category = scrapy.Field()
