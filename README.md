@@ -38,3 +38,8 @@ Use python scrapy to get data from :
 ### Example
 - In this repository, there is a sqlite db example which have the data gotten from the target website.
 - In the ./notebook, there are some example notebook files.
+
+### English words search engine:
+- Using the data got by using rarejob_daily_news_spider
+- Insert data from `rarejob_news` to https://github.com/MyDuan/english_words_of_daily_news/blob/master/db/development.sqlite3
+- Code: https://github.com/MyDuan/english_words_of_daily_news
